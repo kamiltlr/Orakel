@@ -1,0 +1,20 @@
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.movie-poster {
+  width: 300px;
+  height: auto;
+}
+
+.movie-title {
+  font-size: 24px;
+}
+
+.movie-details p {
+  font-size: 16px;
+}
