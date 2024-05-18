@@ -22,6 +22,20 @@ const App = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const genresButtonsRef = useRef(null);
+    const [images, setImages] = useState(null)
+
+    useEffect(() => {
+        const getImages = async () => {
+            const genres = ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Horror', 'Musical', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western'];
+            const images = await Promise.all(genres.map(async (genre) => {
+                const image = await import(`../assets/img/${genre.toLowerCase()}.png`);
+                return { [genre]: image.default };
+            }));
+            const genreImages = Object.assign({}, ...images);
+            setImages(genreImages)
+        };
+        getImages();
+    }, []);
 
     useEffect(() => {
         const query = new URLSearchParams(location.search);
@@ -217,9 +231,9 @@ const App = () => {
                         <div id="genresSlider" className="genres-slider-container genres-container">
                             <button id="prevBtn" className="btn-slider-nav" onClick={handlePrevClick}>‹</button>
                             <div className="genres-buttons" ref={genresButtonsRef}>
-                                {['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Horror', 'Musical', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western'].map(genre => (
+                                {images && Object.entries(images).map(([genre, url]) => (
                                     <button key={genre} className="genreButton btn-genre" onClick={() => handleGenreButtonClick(genre, mediaType)}>
-                                        <img src={`../src/assets/img/${genre.toLowerCase()}.png`} alt={genre} />
+                                        <img src={url} alt={genre} />
                                         <span>{genre} {mediaType === 'movie' ? '' : 'Series'}</span>
                                     </button>
                                 ))}
