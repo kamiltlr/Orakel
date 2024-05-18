@@ -10,22 +10,22 @@
 
 @font-face {
     font-family: "Uni Sans";
-    src: url('../src/assets/fonts/Uni.ttf') format('truetype');
+    src: url('/fonts/Uni.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "Uni Sans Italic";
-    src: url('../src/assets/fonts/Uni-Italic.ttf') format('truetype');
+    src: url('/fonts/Uni-Italic.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "Uni Sans Thin";
-    src: url('../src/assets/fonts/Uni-Thin.ttf') format('truetype');
+    src: url('/fonts/Uni-Thin.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "Paulo-Bitencourt";
-    src: url('../src/assets/fonts/Paulo-Bitencourt.ttf') format('truetype');
+    src: url('/fonts/Paulo-Bitencourt.ttf') format('truetype');
 }
 
 body {
