@@ -50,7 +50,7 @@ const App = () => {
 
     const generateMedia = async (media, genre) => {
         console.log("Media Type:", media);
-        const model = genAI.current.getGenerativeModel({ model: "gemini-pro" });
+        const model = genAI.current.getGenerativeModel({ model: "gemini-1.5-flash" });
         const prompt = media === "movie"
             ? `Give one title of a full-length ${genre} movie without any numbers or symbols.`
             : `Name one title of a TV ${genre} series without any numbers or symbols.`;
